@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>문서 | Kiwi Engine</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo"><a href="/ko/index.html"><img src="/logo.png" alt="Kiwi Engine 로고"> <span>Kiwi Engine</span></a></h1>
+      <nav class="nav">
+        <a href="/ko/index.html">홈</a>
+        <a href="/ko/pages/docs.html">문서</a>
+        <a href="/ko/pages/examples.html">예제</a>
+        <a href="https://github.com/kiwiengine/kiwiengine" target="_blank" rel="noopener">GitHub</a>
+        <a class="lang" href="/pages/docs.html" hreflang="en" title="English">English</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <h2>문서</h2>
+      <p class="lead">키위엔진은 TypeScript 기반 2D 웹 게임 엔진입니다. 중심 좌표계(캔버스 중앙이 0,0), 반응형 캔버스, 레이어/카메라, Canvas/DOM 렌더 노드 등을 제공합니다.</p>
+
+      <div class="section">
+        <h3>빠른 시작</h3>
+        <ol>
+          <li>프로젝트에 <code>kiwiengine</code>을 설치합니다.</li>
+          <li><code>Renderer</code>를 생성하고 레이어를 구성합니다.</li>
+          <li><code>GameObject</code>를 만들어 <code>renderer.root</code>에 추가합니다.</li>
+        </ol>
+        <pre><code class="lang-ts">import { Renderer, GameObject } from 'kiwiengine'
+
+const renderer = new Renderer(document.body, {
+  layers: [
+    { name: 'background', drawOrder: 0 },
+    { name: 'game',       drawOrder: 1 },
+    { name: 'ui',         drawOrder: 2 },
+  ]
+})
+
+const player = new GameObject({ x: 0, y: 0, layer: 'game' })
+renderer.root.add(player)
+</code></pre>
+      </div>
+
+      <div class="section">
+        <h3>핵심 개념</h3>
+        <ul class="list">
+          <li><strong>중심 좌표계</strong> — 화면 중앙이 (0,0). <code>screenToWorld(x,y)</code>로 화면→월드 좌표 변환.</li>
+          <li><strong>반응형 캔버스</strong> — 부모 엘리먼트 크기에 맞춰 자동 리사이징.</li>
+          <li><strong>레이어/카메라</strong> — 레이어별 그리기 순서, 카메라 이동/줌.</li>
+          <li><strong>시간 기반 업데이트</strong> — <code>Ticker</code>가 <code>dt(초)</code>를 전달. 디버그 모드에서 비활성 탭 6FPS 캡.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>주요 노드</h3>
+        <ul class="list">
+          <li><strong>GameObject</strong> — 위치/회전/스케일/레이어, 자식 관리.</li>
+          <li><strong>SpriteNode / AnimatedSpriteNode</strong> — 텍스처/스프라이트시트 렌더링.</li>
+          <li><strong>BitmapTextNode</strong> — 비트맵 폰트 텍스트.</li>
+          <li><strong>CircleNode / RectangleNode</strong> — 기본 도형.</li>
+          <li><strong>SpineNode</strong> — Spine 애니메이션.</li>
+          <li><strong>ParticleSystem</strong> — 간단한 파티클 버스트.</li>
+          <li><strong>Dom*</strong> — DOM 기반 렌더 노드(스프라이트/애니/파티클/컨테이너).</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>충돌/물리</h3>
+        <ul class="list">
+          <li><strong>checkCollision</strong> — 사각/원/타원/폴리곤 지원.</li>
+          <li><strong>PhysicsWorld / PhysicsObject</strong> — 중력/충돌 시뮬레이션 및 렌더 변환 동기화.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>오디오</h3>
+        <ul class="list">
+          <li><strong>musicPlayer</strong> — BGM 플레이어 (<code>localStorage</code>에 볼륨 저장).</li>
+          <li><strong>sfxPlayer</strong> — 경량 효과음 재생.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>디버그</h3>
+        <p><code>enableDebug()</code>로 디버그 모드 토글. 비활성 탭에서 자동 6FPS 고정 스텝 등 동작.</p>
+      </div>
+
+      <div class="section">
+        <a class="btn" href="https://github.com/kiwiengine/kiwiengine" target="_blank" rel="noopener">GitHub에서 전체 README 보기</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>MIT License · © Kiwi Engine</span>
+    </div>
+  </footer>
+</body>
+</html>

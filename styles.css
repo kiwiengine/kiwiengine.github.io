@@ -1,0 +1,40 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #0f172a;
+  background: #ffffff;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.site-header { position: sticky; top: 0; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(8px); border-bottom: 1px solid #e5e7eb; z-index: 10; }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.logo { font-size: 18px; margin: 0; font-weight: 700; letter-spacing: -0.02em; }
+.logo a { display: inline-flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; }
+.logo img { height: 28px; width: auto; display: block; border-radius: 4px; }
+.nav a { color: #0f172a; text-decoration: none; margin-left: 16px; font-weight: 600; }
+.nav a:hover { color: #65a30d; }
+.nav a.lang { margin-left: 24px; opacity: 0.85; }
+.nav a.lang::before { content: '🌿 '; }
+.hero { padding: 80px 0 56px; background: radial-gradient(80% 120% at 50% 0%, #ecfccb 0%, rgba(255,255,255,0) 60%); }
+.hero h2 { font-size: 36px; margin: 0 0 12px; letter-spacing: -0.02em; }
+.hero p { margin: 0 0 20px; color: #334155; max-width: 720px; }
+.cta { display: flex; gap: 12px; }
+.btn { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid #e5e7eb; text-decoration: none; color: #0f172a; font-weight: 600; background: #fff; }
+.btn.primary { background: #65a30d; color: #fff; border-color: #65a30d; }
+.btn:hover { box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 4px 14px rgba(101,163,13,0.25); }
+.features { padding: 32px 0 8px; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+.card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; }
+.code { padding: 24px 0 48px; }
+.code pre { background: #0b1220; color: #cbd5e1; padding: 16px; border-radius: 12px; overflow: auto; }
+.code .hint { color: #475569; margin-top: 10px; }
+.site-footer { border-top: 1px solid #e5e7eb; padding: 16px 0; color: #475569; }
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.list a { text-decoration: none; color: #0f172a; }
+.list a:hover { color: #65a30d; }
+.page { padding: 28px 0 40px; }
+.page h2 { margin: 0 0 8px; }
+.page .lead { color: #334155; margin: 0 0 16px; }
+.page .section { margin: 28px 0; }

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kiwi Engine</title>
+  <meta name="description" content="Kiwi Engine is a TypeScript-based 2D web game engine." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo"><a href="/index.html"><img src="/logo.png" alt="Kiwi Engine logo"> <span>Kiwi Engine</span></a></h1>
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="/pages/docs.html">Docs</a>
+        <a href="/pages/examples.html">Examples</a>
+        <a href="https://github.com/kiwiengine/kiwiengine" target="_blank" rel="noopener">GitHub</a>
+        <a class="lang" href="/ko/index.html" hreflang="ko" title="한국어">한국어</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>TypeScript 2D Web Game Engine</h2>
+        <p>
+          Kiwi Engine features a center-origin coordinate system, responsive canvas, layered rendering, and both Canvas and DOM-based nodes — designed for the modern web.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="/pages/docs.html">Get Started</a>
+          <a class="btn" href="/pages/examples.html">Browse Examples</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container grid">
+        <div class="card">
+          <h3>Center-Origin Coordinates</h3>
+          <p>The canvas center is always (0, 0). Perfect for fluid, responsive layouts on the web.</p>
+        </div>
+        <div class="card">
+          <h3>Responsive Canvas</h3>
+          <p>Automatically matches the parent element’s size and updates on resize.</p>
+        </div>
+        <div class="card">
+          <h3>Layers & Camera</h3>
+          <p>Named layers control draw order. Camera pan/zoom and screen-to-world conversion.</p>
+        </div>
+        <div class="card">
+          <h3>Time-based Updates</h3>
+          <p>rAF-driven Ticker with dt in seconds. Debug mode caps unfocused tabs at 6 FPS.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="code">
+      <div class="container">
+        <h3>Quick Example</h3>
+        <pre><code class="lang-ts">import { Renderer, GameObject } from 'kiwiengine'
+
+const renderer = new Renderer(document.body, {
+  layers: [
+    { name: 'background', drawOrder: 0 },
+    { name: 'game',       drawOrder: 1 },
+    { name: 'ui',         drawOrder: 2 },
+  ]
+})
+
+const player = new GameObject({ x: 0, y: 0, layer: 'game' })
+renderer.root.add(player)
+</code></pre>
+        <p class="hint">See Docs and Examples in the top navigation for more.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>MIT License · © Kiwi Engine</span>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

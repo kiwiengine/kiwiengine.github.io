@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Docs | Kiwi Engine</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo"><a href="/index.html"><img src="/logo.png" alt="Kiwi Engine logo"> <span>Kiwi Engine</span></a></h1>
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="/pages/docs.html">Docs</a>
+        <a href="/pages/examples.html">Examples</a>
+        <a href="https://github.com/kiwiengine/kiwiengine" target="_blank" rel="noopener">GitHub</a>
+        <a class="lang" href="/ko/pages/docs.html" hreflang="ko" title="한국어">한국어</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <h2>Documentation</h2>
+      <p class="lead">Kiwi Engine is a TypeScript-based 2D web game engine. It features a center-origin coordinate system (canvas center is 0,0), responsive canvas, layers/camera, and both Canvas and DOM render nodes.</p>
+
+      <div class="section">
+        <h3>Quick Start</h3>
+        <ol>
+          <li>Install <code>kiwiengine</code> in your project.</li>
+          <li>Create a <code>Renderer</code> and configure layers.</li>
+          <li>Create a <code>GameObject</code> and add it to <code>renderer.root</code>.</li>
+        </ol>
+        <pre><code class="lang-ts">import { Renderer, GameObject } from 'kiwiengine'
+
+const renderer = new Renderer(document.body, {
+  layers: [
+    { name: 'background', drawOrder: 0 },
+    { name: 'game',       drawOrder: 1 },
+    { name: 'ui',         drawOrder: 2 },
+  ]
+})
+
+const player = new GameObject({ x: 0, y: 0, layer: 'game' })
+renderer.root.add(player)
+</code></pre>
+      </div>
+
+      <div class="section">
+        <h3>Core Concepts</h3>
+        <ul class="list">
+          <li><strong>Center-Origin Coordinates</strong> — The canvas center is (0,0). Use <code>screenToWorld(x,y)</code> for screen→world conversion.</li>
+          <li><strong>Responsive Canvas</strong> — Automatically resizes to match the parent element.</li>
+          <li><strong>Layers/Camera</strong> — Control draw order and pan/zoom the camera.</li>
+          <li><strong>Time-based Updates</strong> — <code>Ticker</code> provides <code>dt</code> in seconds; debug mode caps unfocused tabs at 6 FPS.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Main Nodes</h3>
+        <ul class="list">
+          <li><strong>GameObject</strong> — Transform (position/rotation/scale/layer), children management.</li>
+          <li><strong>SpriteNode / AnimatedSpriteNode</strong> — Texture/spritesheet rendering.</li>
+          <li><strong>BitmapTextNode</strong> — Bitmap-font text rendering.</li>
+          <li><strong>CircleNode / RectangleNode</strong> — Primitive shapes.</li>
+          <li><strong>SpineNode</strong> — Spine animation.</li>
+          <li><strong>ParticleSystem</strong> — Simple burst particles.</li>
+          <li><strong>Dom*</strong> — DOM-based nodes (sprite/animated/particle/container).</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Collision/Physics</h3>
+        <ul class="list">
+          <li><strong>checkCollision</strong> — Supports rect/circle/ellipse/polygon.</li>
+          <li><strong>PhysicsWorld / PhysicsObject</strong> — Gravity/collision simulation with render transform sync.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Audio</h3>
+        <ul class="list">
+          <li><strong>musicPlayer</strong> — BGM player (volume persisted in <code>localStorage</code>).</li>
+          <li><strong>sfxPlayer</strong> — Lightweight sound effects.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Debug</h3>
+        <p>Toggle debug mode with <code>enableDebug()</code>. Unfocused tabs run at a fixed 6 FPS step in debug.</p>
+      </div>
+
+      <div class="section">
+        <a class="btn" href="https://github.com/kiwiengine/kiwiengine" target="_blank" rel="noopener">View full README on GitHub</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>MIT License · © Kiwi Engine</span>
+    </div>
+  </footer>
+</body>
+</html>

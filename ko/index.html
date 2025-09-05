@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>키위엔진 | Kiwi Engine</title>
+  <meta name="description" content="TypeScript 기반 2D 웹 게임 엔진, 키위엔진 (Kiwi Engine)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo"><a href="/ko/index.html"><img src="/logo.png" alt="Kiwi Engine 로고"> <span>Kiwi Engine</span></a></h1>
+      <nav class="nav">
+        <a href="/ko/index.html">홈</a>
+        <a href="/ko/pages/docs.html">문서</a>
+        <a href="/ko/pages/examples.html">예제</a>
+        <a href="https://github.com/kiwiengine/kiwiengine" target="_blank" rel="noopener">GitHub</a>
+        <a class="lang" href="/index.html" hreflang="en" title="English">English</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>TypeScript 기반 2D 웹 게임 엔진</h2>
+        <p>
+          키위엔진은 웹에 최적화된 중심좌표(캔버스 중앙이 0,0), 반응형 캔버스, 레이어 & 카메라,
+          Canvas/DOM 렌더 노드를 제공하는 가벼운 게임 엔진입니다.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="/ko/pages/docs.html">시작하기</a>
+          <a class="btn" href="/ko/pages/examples.html">예제 살펴보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container grid">
+        <div class="card">
+          <h3>중심 좌표계</h3>
+          <p>캔버스 중앙이 (0,0). 반응형 레이아웃에서 UI/오브젝트 배치가 쉬워집니다.</p>
+        </div>
+        <div class="card">
+          <h3>반응형 캔버스</h3>
+          <p>부모 엘리먼트 크기에 자동으로 맞추고 리사이즈합니다.</p>
+        </div>
+        <div class="card">
+          <h3>레이어 & 카메라</h3>
+          <p>레이어로 그리기 순서 제어, 카메라 이동/줌, 화면→월드 좌표 변환 제공.</p>
+        </div>
+        <div class="card">
+          <h3>시간 기반 업데이트</h3>
+          <p>rAF 기반 Ticker로 dt(초) 업데이트. 디버그 모드에서 비활성 탭 6FPS 제한.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="code">
+      <div class="container">
+        <h3>간단 예시</h3>
+        <pre><code class="lang-ts">import { Renderer, GameObject } from 'kiwiengine'
+
+const renderer = new Renderer(document.body, {
+  layers: [
+    { name: 'background', drawOrder: 0 },
+    { name: 'game',       drawOrder: 1 },
+    { name: 'ui',         drawOrder: 2 },
+  ]
+})
+
+const player = new GameObject({ x: 0, y: 0, layer: 'game' })
+renderer.root.add(player)
+</code></pre>
+        <p class="hint">상단 메뉴의 문서/예제에서 더 살펴보세요.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>MIT License · © Kiwi Engine</span>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
