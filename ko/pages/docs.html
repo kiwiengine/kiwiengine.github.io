@@ -28,9 +28,9 @@
       <div class="section">
         <h3>빠른 시작</h3>
         <ol>
-          <li>프로젝트에 <code>kiwiengine</code>을 설치합니다.</li>
+          <li>프로젝트에 <code>kiwiengine</code>을 설치합니다. <code>npm install kiwiengine</code></li>
           <li><code>Renderer</code>를 생성하고 레이어를 구성합니다.</li>
-          <li><code>GameObject</code>를 만들어 <code>renderer.root</code>에 추가합니다.</li>
+          <li><code>GameObject</code>를 만들어 <code>renderer</code>에 추가합니다.</li>
         </ol>
         <pre><code class="lang-ts">import { Renderer, GameObject } from 'kiwiengine'
 
@@ -43,7 +43,7 @@ const renderer = new Renderer(document.body, {
 })
 
 const player = new GameObject({ x: 0, y: 0, layer: 'game' })
-renderer.root.add(player)
+renderer.add(player)
 </code></pre>
       </div>
 

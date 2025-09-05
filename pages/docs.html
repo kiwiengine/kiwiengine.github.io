@@ -28,9 +28,9 @@
       <div class="section">
         <h3>Quick Start</h3>
         <ol>
-          <li>Install <code>kiwiengine</code> in your project.</li>
+          <li>Install <code>kiwiengine</code> in your project. <code>npm install kiwiengine</code></li>
           <li>Create a <code>Renderer</code> and configure layers.</li>
-          <li>Create a <code>GameObject</code> and add it to <code>renderer.root</code>.</li>
+          <li>Create a <code>GameObject</code> and add it to <code>renderer</code>.</li>
         </ol>
         <pre><code class="lang-ts">import { Renderer, GameObject } from 'kiwiengine'
 
@@ -43,7 +43,7 @@ const renderer = new Renderer(document.body, {
 })
 
 const player = new GameObject({ x: 0, y: 0, layer: 'game' })
-renderer.root.add(player)
+renderer.add(player)
 </code></pre>
       </div>
 
